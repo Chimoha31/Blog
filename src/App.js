@@ -32,21 +32,31 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="file"
-        onChange={(e) => {
-          setImageUpload(e.target.files[0]);
-        }}
-      />
-      <button onClick={uploadImage}>Upload Image</button>
+      <div className="upload_container">
+        <textarea></textarea>
+        <input
+          type="file"
+          onChange={(e) => {
+            setImageUpload(e.target.files[0]);
+          }}
+        />
+        <button onClick={uploadImage}>Upload Image</button>
+      </div>
 
       {imageList.map((image, index) => (
-        <div key={index}>
-          <img
-            src={image}
-            alt="blog img"
-            style={{ width: "500px", height: "500px" }}
-          />
+        <div className="blog_title_container" key={index}>
+          <div>
+            <h1>April 19th, 2022</h1>
+            <p>This is what I did today</p>
+            <button>Detail</button>
+          </div>
+          <div>
+            <img
+              src={image}
+              alt="blog img"
+              style={{ width: "200px", height: "200px" }}
+            />
+          </div>
         </div>
       ))}
     </div>
